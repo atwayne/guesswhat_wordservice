@@ -42,7 +42,7 @@ namespace WayneStudio.WordService.Core
             }
         }
 
-        public static int ExecuteNonQuery(string sql, SQLiteParameter[] parameters, string connectionString = "")
+        public static int ExecuteNonQuery(string sql, SQLiteParameter[] parameters = null, string connectionString = "")
         {
             if (string.IsNullOrEmpty(connectionString))
                 connectionString = ConnectionString;
@@ -68,7 +68,7 @@ namespace WayneStudio.WordService.Core
             return affectedRows;
         }
 
-        public static DataTable ExecuteDataTable(string sql, SQLiteParameter[] parameters, string connectionString = "")
+        public static DataTable ExecuteDataTable(string sql, SQLiteParameter[] parameters = null, string connectionString = "")
         {
             if (string.IsNullOrEmpty(connectionString))
                 connectionString = ConnectionString;
