@@ -19,7 +19,7 @@ namespace WayneStudio.WordService.Core
             var apiExplorer = GlobalConfiguration.Configuration.Services.GetApiExplorer();
 
             var controllerRequested = request.GetRouteData().Values["controller"] as string;
-            var supportedMethods = new string[] { "POST","OPTIONS"};
+            var supportedMethods = new string[] { "POST", "OPTIONS", "TRACE", "GET", "HEAD" };
 
             return Task.Factory.StartNew(() =>
             {
