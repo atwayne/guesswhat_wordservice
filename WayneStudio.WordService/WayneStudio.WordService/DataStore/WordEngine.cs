@@ -71,12 +71,40 @@ namespace WayneStudio.WordService.DataStore
 
         public void Expire(UpdateWordRequest request)
         {
-            throw new NotImplementedException();
+            var query = @"
+                UPDATE Word
+                SET IsExpired = 1, ExpiredAt = CURRENT_TIMESTAMP
+                WHERE Word=@Word";
+
+            foreach (var item in request.Words)
+            {
+                var parameters = new List<SQLiteParameter>();
+                parameters.Add(new SQLiteParameter("Word", item));
+                try
+                {
+                    SQLiteHelper.ExecuteNonQuery(query, parameters.ToArray());
+                }
+                catch (SQLiteException) { }
+            }
         }
 
         public void Block(UpdateWordRequest request)
         {
-            throw new NotImplementedException();
+            var query = @"
+                UPDATE Word
+                SET IsExpired = 1, ExpiredAt = CURRENT_TIMESTAMP, IsBlocked = 1
+                WHERE Word=@Word";
+
+            foreach (var item in request.Words)
+            {
+                var parameters = new List<SQLiteParameter>();
+                parameters.Add(new SQLiteParameter("Word", item));
+                try
+                {
+                    SQLiteHelper.ExecuteNonQuery(query, parameters.ToArray());
+                }
+                catch (SQLiteException) { }
+            }
         }
     }
 }
