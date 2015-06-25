@@ -88,10 +88,13 @@
     <Compile Include="Controllers\WordController.cs" />
     <Compile Include="Core\SQLiteHelper.cs" />
     <Compile Include="Core\WebApiConfig.cs" />
+    <Compile Include="DataStore\EntityExtension.cs" />
+    <Compile Include="DataStore\WordEngine.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CreateWordRequest.cs" />
+    <Compile Include="Models\UpdateWordRequest.cs" />
+    <Compile Include="Models\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
