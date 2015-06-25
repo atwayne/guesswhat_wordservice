@@ -28,6 +28,7 @@ namespace WayneStudio.WordService.Controllers
 
 
         [HttpPost]
+        [HttpOptions]
         [Route("word/expire")]
         public HttpResponseMessage Expire(UpdateWordRequest request)
         {
@@ -37,6 +38,7 @@ namespace WayneStudio.WordService.Controllers
         }
 
         [HttpPost]
+        [HttpOptions]
         [Route("word/block")]
         public HttpResponseMessage Block(UpdateWordRequest request)
         {

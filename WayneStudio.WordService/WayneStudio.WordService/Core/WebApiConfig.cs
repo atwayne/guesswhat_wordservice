@@ -23,6 +23,9 @@ namespace WayneStudio.WordService.Core
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             config.EnsureInitialized();
+
+            config.MessageHandlers.Add(new OptionsHttpMessageHandler());
+
         }
     }
 }

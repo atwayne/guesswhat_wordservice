@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\WordController.cs" />
+    <Compile Include="Core\OptionsHttpMessageHandler.cs" />
     <Compile Include="Core\SQLiteHelper.cs" />
     <Compile Include="Core\WebApiConfig.cs" />
     <Compile Include="DataStore\EntityExtension.cs" />
