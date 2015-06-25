@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WayneStudio.WordService.DataStore;
 using WayneStudio.WordService.Models;
 
 namespace WayneStudio.WordService.Controllers
@@ -12,7 +12,8 @@ namespace WayneStudio.WordService.Controllers
         [Route("word/create")]
         public HttpResponseMessage Create(UpdateWordRequest request)
         {
-            // TODO: save to database
+            var engine = new WordEngine();
+            engine.AddWords(request);
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 
@@ -20,25 +21,27 @@ namespace WayneStudio.WordService.Controllers
         [Route("word/list")]
         public HttpResponseMessage List()
         {
-            // TODO: read from database
-            var wordList = new List<string>() { "foo", "bar" };
+            var engine = new WordEngine();
+            var wordList = engine.GetWordList();
             return Request.CreateResponse(HttpStatusCode.OK, wordList);
         }
 
 
         [HttpPost]
         [Route("word/expire")]
-        public HttpResponseMessage List(UpdateWordRequest request)
+        public HttpResponseMessage Expire(UpdateWordRequest request)
         {
-            // TODO: expire record
+            var engine = new WordEngine();
+            engine.Expire(request);
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 
         [HttpPost]
         [Route("word/block")]
-        public HttpResponseMessage List(UpdateWordRequest request)
+        public HttpResponseMessage Block(UpdateWordRequest request)
         {
-            // TODO: block record
+            var engine = new WordEngine();
+            engine.Block(request);
             return Request.CreateResponse(HttpStatusCode.Created);
         }
     }
